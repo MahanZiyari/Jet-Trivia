@@ -1,5 +1,6 @@
 package com.mahan.compose.jettrivia.di
 
+import com.mahan.compose.jettrivia.data.QuestionRepository
 import com.mahan.compose.jettrivia.network.QuestionApi
 import com.mahan.compose.jettrivia.util.Constants
 import dagger.Module
@@ -21,4 +22,8 @@ object AppModule {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(QuestionApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideQuestionRepository(api: QuestionApi) = QuestionRepository(api)
 }
