@@ -94,7 +94,8 @@ fun QuestionDisplay(
         ) {
             if (questionIndex.value > 3) ShowProgress(score = questionIndex.value)
             QuestionTracker(
-                counter = questionIndex.value
+                counter = questionIndex.value,
+                total = viewModel.data.value.data?.size ?: 100
             )
             DashLine(pathEffect = pathEffect)
 
